@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.container {
+    width: 400px;
+    height: 500px;
+    border: 1px solid green;
+    box-shadow: 2px 2px 20px rgb(29, 143, 53);
+    text-align: center;
+    border-radius: 20px;
+}
+
+img {
+    height: 250px;
+    width: 250px;
+    /* border-top: 5px solid greenyellow;
+    border-bottom: 5px solid blueviolet;
+    border-left: 5px solid green;
+    border-right: 5px solid cyan; */
+    border-radius: 50%;
+}
+
+#singer {
+    font-family: sans-serif;
+    color: grey;
+}
+
+#song {
+    font-family: "Pacifico", cursive;
+    font-style: italic;
+    color: grey;
+    text-shadow: 2px 2px 20px rgb(29, 143, 53);
+}
+
+.controller {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    align-items: center;
+}
+
+#play {
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 50%;
+}
+
+#play:hover {
+    color: white;
+    background-color: black;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: 350px;
+        height: 500px;
+    }
+
+    .img {
+        height: 160px;
+        width: 160px;
+    }
+    #play, #forward, #backward{
+        font-size: 10px;
+    }
+}

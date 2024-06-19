@@ -1,0 +1,119 @@
+body{
+    margin: 0;
+    box-sizing: border-box;
+    background-color: wheat;
+    height: 100vh;
+}
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    align-items: center;
+}
+
+input{
+    width: 400px;
+    height: 50px;
+}
+
+button{
+    font-size: 35px;
+    padding: 8px;
+}
+
+#Food{
+    font-size: 35px;
+    font-weight: 700;
+    font-family: sans-serif;
+    margin-left: 20px;
+}
+#food-icon{
+    font-size: 30px;
+    border: 1px solid wheat;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 50px;
+    background-color: wheat;
+    box-shadow: 2px 2px 2px white;
+}
+.two-container{
+   width: 100%;
+   height: 90%  ;
+   background-color: white; 
+   margin-top: 10px;
+   display: flex;
+}
+.left-container
+{
+    width: 35%;
+    height: 100%;
+    background-color: wheat;
+    box-shadow: 2px 2px 20px black;
+    border-radius: 10px;
+    margin-right: 10px;
+    overflow-y: auto;
+
+}
+.left-container::-webkit-scrollbar{
+    display: none;
+}
+.right-container{
+    width: 65%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+
+}
+.right-container > span
+{
+    font-weight: 100;
+    font-style: italic;
+    font-family: sans-serif;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 30px;
+    text-align: center;
+    overflow-y: auto;
+
+}
+#laugh{
+    font-size: 30px;
+}
+#myimage{
+    width: 350px;
+    height: 250px;
+    border-radius: 50%;
+}
+#mytitle, #mypublisher{
+    /* width: 350px; */
+    color: grey;
+    text-shadow: 2px 2px 10px white;
+}
+.left-food-container{
+    text-align: center;
+    padding: 20px;
+    border: 5px solid white;
+    margin: 7px;
+    border-radius: 4%;
+}
+#myimage:hover{
+transform: scale(1.05);
+transition: 1s;
+}
+
+#mytitle:hover, #mypublisher:hover{
+    color: white;
+    text-shadow: 2px 2px 10px grey;
+    transition: color 1s;
+}
+.right-image{
+    width: 100%;
+    height: 500px;
+    opacity: 0.6;
+}
+.right-title, .right-publisher, .right-servings, .right-cooking-time{
+    color: rgb(214, 8, 8);
+    text-shadow: 2px 2px 1px white;
+}
