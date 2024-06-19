@@ -5,7 +5,8 @@ const searchInput = document.getElementById("searchinput")
 const leftContainer = document.getElementById("left-container")
 const rightContainer = document.getElementById("right-container")
 
-import {storeRecipeData} from "./MVC/mymodel.js"
+import { OneRecipeView } from "./MVC/OneRecipeView.js"
+import {storeRecipeData} from "./MVC/Mymodel.js"
 searchBtn.addEventListener('click', function () {
     getRecipeData()
 })
@@ -61,38 +62,41 @@ async function loadPerticularRecipe() {
 
     // console.log(recipeObject.ingredients)
 
-    storeRecipeData(hashID)
+   await storeRecipeData(hashID)
+
+   const rv = new OneRecipeView()
+   rv.render()
       
 
-    rightContainer.innerText = "";
+    // rightContainer.innerText = "";
 
-    const rightData = `<div class= "right-food-container" >
-                <img  class ="right-image"src="${recipeObject.imageUrl}" alt="">
-                <h2 class = "right-title">Title: ${recipeObject.title}</h2>
-                <h3 class="right-publisher">Publisher:${recipeObject.publisher}</h3>
-                <h3 class ="right-servings">Servings:${recipeObject.servings}</h3>
-                <h3 class = "right-cooking-time">cooking Time:${recipeObject.cookingTime}</h3>
-
-
-                <div class= "ingredients" >
-                   ${recipeObject.ingredients.map(function (i) 
-                    {
-                    console.log(i)
-                    return `<div>
-                         <span>${i.description}</span> --
-                         <span>${i.quantity}</span>
-                         <span>${i.quantity}</span >
-                          </div > `
-
-                    }).join("")}
-
-            </div >
-            </div>`
+    // const rightData = `<div class= "right-food-container" >
+    //             <img  class ="right-image"src="${recipeObject.imageUrl}" alt="">
+    //             <h2 class = "right-title">Title: ${recipeObject.title}</h2>
+    //             <h3 class="right-publisher">Publisher:${recipeObject.publisher}</h3>
+    //             <h3 class ="right-servings">Servings:${recipeObject.servings}</h3>
+    //             <h3 class = "right-cooking-time">cooking Time:${recipeObject.cookingTime}</h3>
 
 
+    //             <div class= "ingredients" >
+    //                ${recipeObject.ingredients.map(function (i) 
+    //                 {
+    //                 console.log(i)
+    //                 return `<div>
+    //                      <span>${i.description}</span> --
+    //                      <span>${i.quantity}</span>
+    //                      <span>${i.quantity}</span >
+    //                       </div > `
+
+    //                 }).join("")}
+
+    //         </div >
+    //         </div>`
 
 
-    rightContainer.insertAdjacentHTML("afterbegin", rightData)
+
+
+    // rightContainer.insertAdjacentHTML("afterbegin", rightData)
 }
 loadPerticularRecipe()
 
