@@ -5,6 +5,7 @@ const searchInput = document.getElementById("searchinput")
 const leftContainer = document.getElementById("left-container")
 const rightContainer = document.getElementById("right-container")
 
+import {storeRecipeData} from "./MVC/mymodel.js"
 searchBtn.addEventListener('click', function () {
     getRecipeData()
 })
@@ -45,20 +46,24 @@ async function loadPerticularRecipe() {
 
     const hashID= window.location.hash.slice(1)
 
-    const response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${hashID}`)
-    const recipeData = await response.json()
-    console.log(recipeData.data.recipe)
-    const recipeObject = {
-        publisher: recipeData.data.recipe.publisher,
-        title: recipeData.data.recipe.title,
-        imageUrl: recipeData.data.recipe.image_url,
-        servings: recipeData.data.recipe.servings,
-        cookingTime: recipeData.data.recipe.cooking_time,
-        ingredients: recipeData.data.recipe.ingredients,
+    // const response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${hashID}`)
+    // const recipeData = await response.json()
+    // console.log(recipeData.data.recipe)
+    // const recipeObject = {
+    //     publisher: recipeData.data.recipe.publisher,
+    //     title: recipeData.data.recipe.title,
+    //     imageUrl: recipeData.data.recipe.image_url,
+    //     servings: recipeData.data.recipe.servings,
+    //     cookingTime: recipeData.data.recipe.cooking_time,
+    //     ingredients: recipeData.data.recipe.ingredients,
 
-    }
+    // }
 
-    console.log(recipeObject.ingredients)
+    // console.log(recipeObject.ingredients)
+
+    storeRecipeData(hashID)
+      
+
     rightContainer.innerText = "";
 
     const rightData = `<div class= "right-food-container" >
