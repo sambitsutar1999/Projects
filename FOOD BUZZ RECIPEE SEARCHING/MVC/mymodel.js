@@ -24,4 +24,15 @@ export async function storeRecipeData(id) {
 
     }
     console.log(anatherRecipeObject)
-  }
+}
+
+
+   export const AllData = {
+    allRecipeData: []
+   }
+    export async function getAllData(searchItem){
+        const recipeData = await getJSON(`${API_URL}?search=${searchItem}&key=762ab8cf-f985-4cad-bacd-6ac38255013a`)
+        const recipeArray = recipedata.data.recipes
+        AllData.allRecipeData = recipeArray
+        console.log(AllData)
+    }
