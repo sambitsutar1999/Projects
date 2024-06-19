@@ -21,7 +21,7 @@ searchBtn.addEventListener('click', function () {
 async function getRecipeData() {
     try {
         const searchItem = searchInput.value
-        const recipeData = getJSON(`${API_URL}?search=${searchItem}&key=762ab8cf-f985-4cad-bacd-6ac38255013a`)
+        const recipeData = await getJSON(`${API_URL}?search=${searchItem}&key=762ab8cf-f985-4cad-bacd-6ac38255013a`)
         // const response = await fetch(`${API_URL}?search=${searchItem}&key=762ab8cf-f985-4cad-bacd-6ac38255013a`)
         // const recipedata = await response.json()
         const recipeArray = recipedata.data.recipes
@@ -109,4 +109,21 @@ async function loadPerticularRecipe() {
 }
 loadPerticularRecipe()
 
-window.addEventListener('hashchange',loadPerticularRecipe)
+function callHashChangeEventHandler(){
+    const r = new OneRecipeView()
+    r.hashChangeEventHandler(loadPerticularRecipe)
+}
+
+callHashChangeEventHandler()
+
+// window.addEventListener('hashchange',loadPerticularRecipe)
+
+// window.addEventListener("hashchange", loadParticularRecipe)
+
+// https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bcded
+
+// Publisher - Subscriber design pattern
+// Publisher and Subscriber(functions)
+// Publisher -- > fn -- > that will basicalliy hold the code related to an event -- > hashChangeEventHandler
+// Subscriber -- > fn -- > that will be called when the event occurs -- > loadParticularRecipe()
+// helper files(variables) and config files(functions)

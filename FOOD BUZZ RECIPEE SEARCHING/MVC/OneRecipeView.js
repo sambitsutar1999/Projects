@@ -55,4 +55,17 @@ export class OneRecipeView {
 addDataTOContainer(){
    this.rightContainer.insertAdjacentHTML("afterbegin", this.rightData)
 }
+
+hashChangeEventHandler(data){
+    window.addEventListener('hashchange',data)
+}
+handleError(){
+    this.rightContainer = document.getElementById("right-container")
+    this.rightContainer.innerText = "";
+    this.rightContainer.innerText = "Please Enter  A valid id";
+}
+
+
+
+
 }

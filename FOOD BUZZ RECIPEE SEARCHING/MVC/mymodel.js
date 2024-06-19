@@ -8,7 +8,7 @@ export const anatherRecipeObject = {
 
 
 export async function storeRecipeData(id) {
-    const recipeData = getJSON(`${API_URL}/${id}`)
+    const recipeData = await getJSON(`${API_URL}/${id}`)
     // const response = await fetch(`${API_URL}/${id}`)
     // const recipeData = await response.json()
 
