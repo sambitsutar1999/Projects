@@ -3,17 +3,24 @@
 const searchBtn = document.getElementById("search")
 const searchInput = document.getElementById("searchinput")
 const leftContainer = document.getElementById("left-container")
-const rightContainer = document.getElementById("right-container")
+// const rightContainer = document.getElementById("right-container")
 
 import { OneRecipeView } from "./MVC/OneRecipeView.js"
 import {storeRecipeData} from "./MVC/Mymodel.js"
+import { API_URL } from "./helpers/helpers.js"
+
+
+
+
+
+
 searchBtn.addEventListener('click', function () {
     getRecipeData()
 })
 async function getRecipeData() {
     try {
         const searchItem = searchInput.value
-        const response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes?search=${searchItem}&key=762ab8cf-f985-4cad-bacd-6ac38255013a`)
+        const response = await fetch(`${API_URL}?search=${searchItem}&key=762ab8cf-f985-4cad-bacd-6ac38255013a`)
         const recipedata = await response.json()
         const recipeArray = recipedata.data.recipes
 
@@ -65,7 +72,7 @@ async function loadPerticularRecipe() {
    await storeRecipeData(hashID)
 
    const rv = new OneRecipeView()
-   rv.render()
+         rv.render()
       
 
     // rightContainer.innerText = "";

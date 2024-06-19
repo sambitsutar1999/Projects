@@ -1,4 +1,4 @@
-import{anatherRecipeObject } from "./Mymodel.js";
+import{anatherRecipeObject} from "./Mymodel.js";
 
 export class OneRecipeView {
     rightContainer;
@@ -16,8 +16,8 @@ export class OneRecipeView {
 
 
     clear(){
-    rightContainer.innerText = "";
-           }
+    this.rightContainer.innerText = "";
+    }
 
 
 
@@ -53,6 +53,6 @@ export class OneRecipeView {
 
 
 addDataTOContainer(){
-    rightContainer.insertAdjacentHTML("afterbegin", this.rightData)
+   this.rightContainer.insertAdjacentHTML("afterbegin", this.rightData)
 }
 }

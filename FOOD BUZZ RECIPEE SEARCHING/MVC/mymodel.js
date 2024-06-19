@@ -1,10 +1,15 @@
+import { API_URL } from "./helpers/helpers.js"
+
+
+
 export const anatherRecipeObject = {
+
     recipeObject: {}
 }
 
 
 export async function storeRecipeData(id) {
-    const response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${id}`)
+    const response = await fetch(`${API_URL}/${id}`)
     const recipeData = await response.json()
 
     // console.log(recipeData.data.recipe)
