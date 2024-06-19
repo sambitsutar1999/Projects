@@ -7,7 +7,7 @@ export async function getJSON(url) {
 
     if (data.status === "success") {
         return data
-    } else if(data.status == "error")
+    } else if(data.status == "fail")
     {
         const rv = new OneRecipeView()
          rv.handleError()
