@@ -23,10 +23,10 @@ async function getRecipeData() {
             const myId = i.id
             console.log(myId)
 
-            rightContainer.innerText = "";
+            // rightContainer.innerText = "";
 
             return leftContainer.insertAdjacentHTML('afterbegin', `
-             <a href="#">
+             <a href="#${myId}">
              <div class="left-food-container">
              <img src="${myImageUrl}" id="myimage"/>
              <h2 id="mypublisher">${myPublisher}</h2>
@@ -41,8 +41,11 @@ async function getRecipeData() {
 }
 // getRecipeData()
 
-async function loadPerticularRecipe() {
-    const response = await fetch("https://forkify-api.herokuapp.com/api/v2/recipes/664c8f193e7aa067e94e887c")
+async function loadPerticularRecipe() { 
+
+    const hashID= window.location.hash.slice(1)
+
+    const response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${hashID}`)
     const recipeData = await response.json()
     console.log(recipeData.data.recipe)
     const recipeObject = {
@@ -56,6 +59,7 @@ async function loadPerticularRecipe() {
     }
 
     console.log(recipeObject.ingredients)
+    rightContainer.innerText = "";
 
     const rightData = `<div class= "right-food-container" >
                 <img  class ="right-image"src="${recipeObject.imageUrl}" alt="">
@@ -65,11 +69,12 @@ async function loadPerticularRecipe() {
                 <h3 class = "right-cooking-time">cooking Time:${recipeObject.cookingTime}</h3>
 
 
-                <div class= "ingredient" >
-                   ${recipeObject.ingredients.map(function (i) {
+                <div class= "ingredients" >
+                   ${recipeObject.ingredients.map(function (i) 
+                    {
                     console.log(i)
                     return `<div>
-                         <h2>${i.description}</h2>
+                         <span>${i.description}</span> --
                          <span>${i.quantity}</span>
                          <span>${i.quantity}</span >
                           </div > `
@@ -85,3 +90,5 @@ async function loadPerticularRecipe() {
     rightContainer.insertAdjacentHTML("afterbegin", rightData)
 }
 loadPerticularRecipe()
+
+window.addEventListener('hashchange',loadPerticularRecipe)
