@@ -8,6 +8,7 @@ const leftContainer = document.getElementById("left-container")
 import { OneRecipeView } from "./MVC/OneRecipeView.js"
 import {storeRecipeData} from "./MVC/Mymodel.js"
 import { API_URL } from "./helpers/helpers.js"
+import { getJSON } from "./config/config.js"
 
 
 
@@ -20,8 +21,9 @@ searchBtn.addEventListener('click', function () {
 async function getRecipeData() {
     try {
         const searchItem = searchInput.value
-        const response = await fetch(`${API_URL}?search=${searchItem}&key=762ab8cf-f985-4cad-bacd-6ac38255013a`)
-        const recipedata = await response.json()
+        const recipeData = getJSON(`${API_URL}?search=${searchItem}&key=762ab8cf-f985-4cad-bacd-6ac38255013a`)
+        // const response = await fetch(`${API_URL}?search=${searchItem}&key=762ab8cf-f985-4cad-bacd-6ac38255013a`)
+        // const recipedata = await response.json()
         const recipeArray = recipedata.data.recipes
 
         recipeArray.map(function (i) {

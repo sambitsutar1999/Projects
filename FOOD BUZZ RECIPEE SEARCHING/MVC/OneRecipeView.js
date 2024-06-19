@@ -1,4 +1,4 @@
-import{anatherRecipeObject} from "./Mymodel.js";
+import{ anatherRecipeObject } from "./Mymodel.js";
 
 export class OneRecipeView {
     rightContainer;

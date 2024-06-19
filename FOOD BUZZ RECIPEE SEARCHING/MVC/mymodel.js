@@ -1,6 +1,5 @@
 import { API_URL } from "./helpers/helpers.js"
-
-
+import { getJSON } from "../config/config.js"
 
 export const anatherRecipeObject = {
 
@@ -9,8 +8,9 @@ export const anatherRecipeObject = {
 
 
 export async function storeRecipeData(id) {
-    const response = await fetch(`${API_URL}/${id}`)
-    const recipeData = await response.json()
+    const recipeData = getJSON(`${API_URL}/${id}`)
+    // const response = await fetch(`${API_URL}/${id}`)
+    // const recipeData = await response.json()
 
     // console.log(recipeData.data.recipe)
 
