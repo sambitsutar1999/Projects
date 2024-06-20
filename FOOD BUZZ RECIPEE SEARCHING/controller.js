@@ -2,7 +2,7 @@
 // 762ab8cf-f985-4cad-bacd-6ac38255013a
 const searchBtn = document.getElementById("search")
 const searchInput = document.getElementById("searchinput")
-const leftContainer = document.getElementById("left-container")
+// const leftContainer = document.getElementById("left-container")
 // const rightContainer = document.getElementById("right-container")
 
 import { OneRecipeView } from "./MVC/OneRecipeView.js"
@@ -10,6 +10,7 @@ import {getAllData, storeRecipeData} from "./MVC/Mymodel.js"
 import { API_URL } from "./helpers/helpers.js"
 import { getJSON } from "./config/config.js"
 import { getAllData } from "./MVC/Mymodel.js"
+import { AllRecipeView } from "./MVC/AllRecipeView.js"
 
 
 
@@ -22,32 +23,36 @@ searchBtn.addEventListener('click', function () {
 async function getRecipeData() {
     try {
         const searchItem = searchInput.value
-        getAllData(searchItem)
+       await getAllData(searchItem)
         // const recipeData = await getJSON(`${API_URL}?search=${searchItem}&key=762ab8cf-f985-4cad-bacd-6ac38255013a`)
         // // const response = await fetch(`${API_URL}?search=${searchItem}&key=762ab8cf-f985-4cad-bacd-6ac38255013a`)
         // // const recipedata = await response.json()
         // const recipeArray = recipedata.data.recipes
 
-        recipeArray.map(function (i) {
-            console.log(i)
-            const myPublisher = i.publisher
-            const myTitle = i.title
-            const myImageUrl = i.image_url
-            const myId = i.id
-            console.log(myId)
 
-            // rightContainer.innerText = "";
+        const arv = new AllRecipeView()
+        arv.render()
 
-            return leftContainer.insertAdjacentHTML('afterbegin', `
-             <a href="#${myId}">
-             <div class="left-food-container">
-             <img src="${myImageUrl}" id="myimage"/>
-             <h2 id="mypublisher">${myPublisher}</h2>
-             <h3 id="mytitle">${myTitle}</h3>
-             </div>
-             </a>
-            `)
-        })
+        // recipeArray.map(function (i) {
+        //     console.log(i)
+        //     const myPublisher = i.publisher
+        //     const myTitle = i.title
+        //     const myImageUrl = i.image_url
+        //     const myId = i.id
+        //     console.log(myId)
+
+        //     // rightContainer.innerText = "";
+
+        //     return leftContainer.insertAdjacentHTML('afterbegin', `
+        //      <a href="#${myId}">
+        //      <div class="left-food-container">
+        //      <img src="${myImageUrl}" id="myimage"/>
+        //      <h2 id="mypublisher">${myPublisher}</h2>
+        //      <h3 id="mytitle">${myTitle}</h3>
+        //      </div>
+        //      </a>
+        //     `)
+        // })
     } catch (e) {
         alert(e)
     }
