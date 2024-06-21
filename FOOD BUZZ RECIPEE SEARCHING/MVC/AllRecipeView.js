@@ -1,21 +1,19 @@
-import { AllData } from "./Mymodel"
-
 export class AllRecipeView {
 
     leftContainer
 
 
-    render() {
+    render(data) {
         this.leftContainer = document.getElementById("left-container")
-        this.getRecipeDataView()
+        this.getRecipeDataView(data)
     }
 
-    getRecipeDataView() {
+    getRecipeDataView(recipeArray) {
 
-        const recipeArray = AllData.allRecipeData
+        // const recipeArray = AllData.allRecipeData
 
 
-        recipeArray.map((i) => {
+         recipeArray.map((i) => {
             console.log(i)
             const myPublisher = i.publisher
             const myTitle = i.title

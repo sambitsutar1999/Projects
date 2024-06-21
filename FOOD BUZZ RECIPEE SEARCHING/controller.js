@@ -4,13 +4,14 @@ const searchBtn = document.getElementById("search")
 const searchInput = document.getElementById("searchinput")
 // const leftContainer = document.getElementById("left-container")
 // const rightContainer = document.getElementById("right-container")
-
+import { storeRecipeData } from "./MVC/Mymodel.js"
 import { OneRecipeView } from "./MVC/OneRecipeView.js"
-import {getAllData, storeRecipeData} from "./MVC/Mymodel.js"
+import { getAllData } from "./MVC/Mymodel.js"
 import { API_URL } from "./helpers/helpers.js"
 import { getJSON } from "./config/config.js"
-import { getAllData } from "./MVC/Mymodel.js"
+import { AllData } from "./MVC/Mymodel.js"
 import { AllRecipeView } from "./MVC/AllRecipeView.js"
+import { paginationData } from "./MVC/Mymodel.js"
 
 
 
@@ -31,7 +32,7 @@ async function getRecipeData() {
 
 
         const arv = new AllRecipeView()
-        arv.render()
+        arv.render(paginationData(1))
 
         // recipeArray.map(function (i) {
         //     console.log(i)

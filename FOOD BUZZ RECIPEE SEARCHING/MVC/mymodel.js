@@ -28,11 +28,20 @@ export async function storeRecipeData(id) {
 
 
    export const AllData = {
-    allRecipeData: []
+    allRecipeData: [],
+    page: 1,
+    dataPerPage: 10
    }
     export async function getAllData(searchItem){
         const recipeData = await getJSON(`${API_URL}?search=${searchItem}&key=762ab8cf-f985-4cad-bacd-6ac38255013a`)
-        const recipeArray = recipedata.data.recipes
+        const recipeArray = recipeData.data.recipes
         AllData.allRecipeData = recipeArray
         console.log(AllData)
     }
+
+export function paginationData(page = AllData.page){
+    AllData.page = page
+    const start = (page - 1) * AllData.dataPerPage
+    const stop = page * AllData.dataPerPage
+    return AllData.allRecipeData.slice(start, stop)
+}
