@@ -13,6 +13,7 @@ import { AllData } from "./MVC/Mymodel.js"
 import { AllRecipeView } from "./MVC/AllRecipeView.js"
 import { paginationData } from "./MVC/Mymodel.js"
 import { MyPaginationView } from "./MVC/MyPaginationView.js"
+import { ServingsView } from "./MVC/ServingsView.js"
 
 
 
@@ -33,7 +34,7 @@ async function getRecipeData() {
 
 
         const arv = new AllRecipeView()
-        arv.render(paginationData(1))
+        arv.render(paginationData(10))
 
         // recipeArray.map(function (i) {
         //     console.log(i)
@@ -128,6 +129,28 @@ function callHashChangeEventHandler(){
 }
 
 callHashChangeEventHandler()
+
+
+
+function controlPagination(number)
+{
+    const arv = new AllRecipeView()
+    arv.render(paginationData(number))
+}
+
+function callIt()
+{
+    const view = new MyPaginationView()
+    view.getPageNumberFromButton(controlPagination)
+}
+
+callIt()
+
+function servings(){
+    new sv = ServingsView()
+    sv.render()
+}
+servings()
 
 // window.addEventListener('hashchange',loadPerticularRecipe)
 

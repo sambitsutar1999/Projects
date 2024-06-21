@@ -26,11 +26,13 @@ export class OneRecipeView {
 
        actualLogic(receivedData){
 
-    const rightData = `<div class= "right-food-container" >
+       return `<div class= "right-food-container" >
                 <img  class ="right-image"src="${receivedData.imageUrl}" alt="">
                 <h2 class = "right-title">Title: ${receivedData.title}</h2>
                 <h3 class="right-publisher">Publisher:${receivedData.publisher}</h3>
                 <h3 class ="right-servings">Servings:${receivedData.servings}</h3>
+                <button id="inc">INCREASE</button>
+                <button id="dec">DECREASE</button>
                 <h3 class = "right-cooking-time">cooking Time:${receivedData.cookingTime}</h3>
 
 
