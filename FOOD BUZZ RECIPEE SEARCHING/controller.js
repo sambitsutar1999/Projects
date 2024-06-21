@@ -12,6 +12,7 @@ import { getJSON } from "./config/config.js"
 import { AllData } from "./MVC/Mymodel.js"
 import { AllRecipeView } from "./MVC/AllRecipeView.js"
 import { paginationData } from "./MVC/Mymodel.js"
+import { MyPaginationView } from "./MVC/MyPaginationView.js"
 
 
 
@@ -54,6 +55,10 @@ async function getRecipeData() {
         //      </a>
         //     `)
         // })
+
+
+        const mpv = new MyPaginationView()
+        mpv.render(AllData)
     } catch (e) {
         alert(e)
     }
