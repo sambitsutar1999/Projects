@@ -14,6 +14,7 @@ import { AllRecipeView } from "./MVC/AllRecipeView.js"
 import { paginationData } from "./MVC/Mymodel.js"
 import { MyPaginationView } from "./MVC/MyPaginationView.js"
 import { ServingsView } from "./MVC/ServingsView.js"
+import { BookmarkView } from "./MVC/BookMarkView.js"
 
 
 
@@ -152,6 +153,13 @@ function servings(){
 }
 servings()
 
+
+function bookmark()
+{
+    const bv = new BookmarkView()
+    bv.handleBookmarks()
+}
+bookmark()
 // window.addEventListener('hashchange',loadPerticularRecipe)
 
 // window.addEventListener("hashchange", loadParticularRecipe)

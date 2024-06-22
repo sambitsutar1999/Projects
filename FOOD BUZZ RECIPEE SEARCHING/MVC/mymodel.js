@@ -45,3 +45,28 @@ export function paginationData(page = AllData.page){
     const stop = page * AllData.dataPerPage
     return AllData.allRecipeData.slice(start, stop)
 }
+
+
+bookmarksArray = []
+export function collectAndStoreBookmark(title)
+{
+// Collect the title and store it
+bookmarksArray.push(title)
+
+//localStorage --> storage which is inbuilt in the browser
+//Stores the data in the form of a key value pair
+// "mobile","Lenovo"  
+
+// 4 methods -- > setItem() -- > Store the data in the form of
+// a key value pair, getItem() -- > get/read that data,
+// remove() -- > remove the data,
+// clear() -- > completely clear the data
+
+// stringify() -- > convert Javascript data -- > JSON
+
+localStorage.setItem("bookmark",JSON.stringify(bookmarksArray))
+
+//parse() -->convert JSON to Javascript data
+const titleData = JSON.parse(localStorage.getItem("bookmark"))
+console.log(titleData)
+}

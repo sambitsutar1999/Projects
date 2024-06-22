@@ -28,6 +28,7 @@ export class OneRecipeView {
 
        return `<div class= "right-food-container" >
                 <img  class ="right-image"src="${receivedData.imageUrl}" alt="">
+                <button>Mark as bookmark</button>
                 <h2 class = "right-title">Title: ${receivedData.title}</h2>
                 <h3 class="right-publisher">Publisher:${receivedData.publisher}</h3>
                 <h3 class ="right-servings">Servings:${receivedData.servings}</h3>
