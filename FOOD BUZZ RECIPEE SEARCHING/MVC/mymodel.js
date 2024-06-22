@@ -1,6 +1,7 @@
 import { API_URL } from "./helpers/helpers.js"
 import { getJSON } from "../config/config.js"
 
+
 export const anatherRecipeObject = {
 
     recipeObject: {}
@@ -68,5 +69,6 @@ localStorage.setItem("bookmark",JSON.stringify(bookmarksArray))
 
 //parse() -->convert JSON to Javascript data
 const titleData = JSON.parse(localStorage.getItem("bookmark"))
-console.log(titleData)
+
+return titleData
 }

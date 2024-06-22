@@ -119,3 +119,10 @@ transition: 1s;
     color: black;
     text-shadow: 2px 2px 1px white;
 }
+#childbookmark
+{
+    border: 200px;
+    height: 250px;
+    border: 1px solid black;
+    overflow: auto;
+}

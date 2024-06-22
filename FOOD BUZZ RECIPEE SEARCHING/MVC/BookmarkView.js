@@ -12,7 +12,17 @@ export class BookmarkView
             if(btnName == "Mark as Bookmark")
                 {
                     const myTitle = anatherRecipeObject.recipeObject.title
-                    collectAndStoreBookmark(myTitle)
+                    let titleArray = collectAndStoreBookmark(myTitle)
+                    
+                    titleArray.map((i) =>
+                {
+
+                //    this.bookmark.innerText = 1
+                   this.bookmark = document.getElementById("childbookmark")
+                   this.bookmark.innerText = ""
+                   
+                   this.bookmark.insertAdjacentHTML("afterbegin", `<h3>${i}</h3>`)
+                })
                 }
 
         })
