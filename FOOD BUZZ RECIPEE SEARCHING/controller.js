@@ -164,6 +164,7 @@ bookmark()
 function addRecipe(){
     const arv = AddRecipeView()
     arv.displayAddRecipeForm()
+    arv.collectRecipeData()
 }
 addRecipe()
 // window.addEventListener('hashchange',loadPerticularRecipe)

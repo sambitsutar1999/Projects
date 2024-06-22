@@ -71,3 +71,16 @@ export function collectAndStoreBookmark(title) {
 
     return titleData
 }
+
+export function recipe(data){
+    // data(javascript object --> array)
+    console.log(Object.entries(data))
+
+    const ingredients = Onject.entries(data).filter(function(i){
+        return i[0].startsWith("ingredient")
+
+    }).map(function(j){
+        return j.split(",")
+    })
+    console.log(ingredients)
+}

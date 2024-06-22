@@ -1,3 +1,5 @@
+import { recipe } from "./Mymodel"
+
 export class AddRecipeView
 {
     right
@@ -46,6 +48,42 @@ export class AddRecipeView
          return this.right.insertAdjacentHTML('afterbegin',addRecipeForm)
 
         })
+    }
+
+    collectRecipeData()
+    {
+        this.right = document.getElementById("right-container")
+        this.right.addEventListener('afterbegin',(e) => {
+            e.preventDefault()
+            //Collect the data from the form
+
+            const title = e.target.form[0].value
+            const imageurl = e.target.form[1].value
+            const cookingTime = e.target.form[2].value
+            const servings = e.target.form[3].value
+            const publisher = e.target.form[4].value
+            const ingredient1 = e.target.form[5].value
+            const ingredient2 = e.target.form[6].value
+            const sourceurl = e.target.form[7].value
+            
+
+            const newRecipeData = {
+                title: title,
+                imageUrl: imageurl,
+                cookingTime: cookingTime,
+                servings: servings,
+                publisher: publisher,
+                ingredient1: ingredient1,
+                ingredient2: ingredient2,
+                sourceurl: sourceurl
+
+            }
+            recipe(newRecipeData)
+
+        }) 
+
+
+
     }
 
 
