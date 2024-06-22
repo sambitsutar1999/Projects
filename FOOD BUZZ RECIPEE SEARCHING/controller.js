@@ -15,6 +15,7 @@ import { paginationData } from "./MVC/Mymodel.js"
 import { MyPaginationView } from "./MVC/MyPaginationView.js"
 import { ServingsView } from "./MVC/ServingsView.js"
 import { BookmarkView } from "./MVC/BookMarkView.js"
+import { AddRecipeView } from "./MVC/AddRecipeView.js"
 
 
 
@@ -27,7 +28,7 @@ searchBtn.addEventListener('click', function () {
 async function getRecipeData() {
     try {
         const searchItem = searchInput.value
-       await getAllData(searchItem)
+        await getAllData(searchItem)
         // const recipeData = await getJSON(`${API_URL}?search=${searchItem}&key=762ab8cf-f985-4cad-bacd-6ac38255013a`)
         // // const response = await fetch(`${API_URL}?search=${searchItem}&key=762ab8cf-f985-4cad-bacd-6ac38255013a`)
         // // const recipedata = await response.json()
@@ -67,9 +68,9 @@ async function getRecipeData() {
 }
 // getRecipeData()
 
-async function loadPerticularRecipe() { 
+async function loadPerticularRecipe() {
 
-    const hashID= window.location.hash.slice(1)
+    const hashID = window.location.hash.slice(1)
 
     // const response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${hashID}`)
     // const recipeData = await response.json()
@@ -86,11 +87,11 @@ async function loadPerticularRecipe() {
 
     // console.log(recipeObject.ingredients)
 
-   await storeRecipeData(hashID)
+    await storeRecipeData(hashID)
 
-   const rv = new OneRecipeView()
-         rv.render()
-      
+    const rv = new OneRecipeView()
+    rv.render()
+
 
     // rightContainer.innerText = "";
 
@@ -124,7 +125,7 @@ async function loadPerticularRecipe() {
 }
 loadPerticularRecipe()
 
-function callHashChangeEventHandler(){
+function callHashChangeEventHandler() {
     const r = new OneRecipeView()
     r.hashChangeEventHandler(loadPerticularRecipe)
 }
@@ -133,33 +134,38 @@ callHashChangeEventHandler()
 
 
 
-function controlPagination(number)
-{
+function controlPagination(number) {
     const arv = new AllRecipeView()
     arv.render(paginationData(number))
 }
 
-function callIt()
-{
+function callIt() {
     const view = new MyPaginationView()
     view.getPageNumberFromButton(controlPagination)
 }
 
 callIt()
 
-function servings(){
+function servings() {
     new sv = ServingsView()
     sv.render()
 }
 servings()
 
 
-function bookmark()
-{
+function bookmark() {
     const bv = new BookmarkView()
     bv.handleBookmarks()
 }
 bookmark()
+
+
+
+function addRecipe(){
+    const arv = AddRecipeView()
+    arv.displayAddRecipeForm()
+}
+addRecipe()
 // window.addEventListener('hashchange',loadPerticularRecipe)
 
 // window.addEventListener("hashchange", loadParticularRecipe)

@@ -1,32 +1,24 @@
-import{ anatherRecipeObject } from "./Mymodel.js";
+import { anatherRecipeObject } from "./Mymodel.js";
 
 export class OneRecipeView {
     rightContainer;
     rightData;
 
-
-    render(){
+    render() {
         this.rightContainer = document.getElementById("right-container")
         this.clear()
         let collectedData = anatherRecipeObject.recipeObject
-        this.rightData =this.actualLogic(collectedData)
+        this.rightData = this.actualLogic(collectedData)
         this.addDataTOContainer()
     }
 
-
-
-    clear(){
-    this.rightContainer.innerText = "";
+    clear() {
+        this.rightContainer.innerText = "";
     }
 
+    actualLogic(receivedData) {
 
-
-
-
-
-       actualLogic(receivedData){
-
-       return `<div class= "right-food-container" >
+        return `<div class= "right-food-container" >
                 <img  class ="right-image"src="${receivedData.imageUrl}" alt="">
                 <button>Mark as bookmark</button>
                 <h2 class = "right-title">Title: ${receivedData.title}</h2>
@@ -35,38 +27,35 @@ export class OneRecipeView {
                 <button id="inc">INCREASE</button>
                 <button id="dec">DECREASE</button>
                 <h3 class = "right-cooking-time">cooking Time:${receivedData.cookingTime}</h3>
-
-
                 <div class= "ingredients" >
-                   ${receivedData.ingredients.map(function (i) 
-                    {
-                    console.log(i)
-                    return `<div>
+                   ${receivedData.ingredients.map(function (i) {
+            console.log(i)
+            return `<div>
                          <span>${i.description}</span> --
                          <span>${i.quantity}</span>
                          <span>${i.quantity}</span >
                           </div > `
 
-                    }).join("")}
+        }).join("")}
 
             </div >
             </div>`
-        }
+    }
 
 
 
-addDataTOContainer(){
-   this.rightContainer.insertAdjacentHTML("afterbegin", this.rightData)
-}
+    addDataTOContainer() {
+        this.rightContainer.insertAdjacentHTML("afterbegin", this.rightData)
+    }
 
-hashChangeEventHandler(data){
-    window.addEventListener('hashchange',data)
-}
-handleError(){
-    this.rightContainer = document.getElementById("right-container")
-    this.rightContainer.innerText = "";
-    this.rightContainer.innerText = "Please Enter  A valid id";
-}
+    hashChangeEventHandler(data) {
+        window.addEventListener('hashchange', data)
+    }
+    handleError() {
+        this.rightContainer = document.getElementById("right-container")
+        this.rightContainer.innerText = "";
+        this.rightContainer.innerText = "Please Enter  A valid id";
+    }
 
 
 
