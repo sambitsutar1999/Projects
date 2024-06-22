@@ -72,15 +72,28 @@ export function collectAndStoreBookmark(title) {
     return titleData
 }
 
-export function recipe(data){
+export function recipe(data) {
     // data(javascript object --> array)
     console.log(Object.entries(data))
 
-    const ingredients = Onject.entries(data).filter(function(i){
+    const ingredients = Onject.entries(data).filter(function (i) {
         return i[0].startsWith("ingredient")
 
-    }).map(function(j){
-        return j.split(",")
+    }).map(function (j) {
+        const data = j[1].split(",")
+        const [quantity, unit, description] = data
+
+        return { quantity, unit, description }
     })
-    console.log(ingredients)
+    //console.log(ingredients)
+    const newData = {
+        title: data.title,
+        image_url: data.imageUrl,
+        ingredients: ingredients,
+        cooking_time: data.gookingTime,
+        servings: data.servings,
+        publisher: data.publisher,
+        source_url: data.sourceUrl
+    }
+    console.log(newData)
 }
