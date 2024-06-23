@@ -1,6 +1,7 @@
 import { API_URL } from "./helpers/helpers.js"
 import { getJSON } from "./config/config.js"
 import { sendJSON } from "../config/config.js"
+import { AddRecipeView } from "./AddRecipeView.js"
 
 
 export const anatherRecipeObject = {
@@ -104,7 +105,10 @@ export async function recipe(data) {
      const myId = outputData.id
      const myTitle = outputData.title
      const myPublisher = outputData.myPublisher
+     const myImageUrl = outputData.image_url
      
-     console.log(myId, myTitle, myPublisher)
+     const arv = new AddRecipeView()
+     arv.displayData(myId, myTitle,myPublisher,myImageUrl)
+
       
 }

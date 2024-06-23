@@ -4,6 +4,7 @@ export class AddRecipeView
 {
     right
     addBtn
+    leftContainer
 
     displayAddRecipeForm()
     {
@@ -86,7 +87,19 @@ export class AddRecipeView
 
     }
 
+     displayData(myId, myTitle, myPublisher, myImageUrl){
 
+        this.leftContainer = document.getElementById("left-container")
+        return this.leftContainer.insertAdjacentHTML('afterbegin', `
+            <a href="#${myId}">
+            <div class="left-food-container">
+            <img src="${myImageUrl}" id="myimage"/>
+            <h2 id="mypublisher">${myPublisher}</h2>
+            <h3 id="mytitle">${myTitle}</h3>
+            </div>
+            </a>
+           `)
+     }
 
 
 }
