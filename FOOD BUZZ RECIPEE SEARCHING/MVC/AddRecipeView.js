@@ -1,4 +1,4 @@
-import { recipe } from "./Mymodel"
+import { recipe } from "./mymodel"
 
 export class AddRecipeView
 {

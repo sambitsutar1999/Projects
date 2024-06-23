@@ -1,5 +1,6 @@
 import { API_URL } from "./helpers/helpers.js"
-import { getJSON } from "../config/config.js"
+import { getJSON } from "./config/config.js"
+import { sendJSON } from "../config/config.js"
 
 
 export const anatherRecipeObject = {
@@ -72,11 +73,11 @@ export function collectAndStoreBookmark(title) {
     return titleData
 }
 
-export function recipe(data) {
+export async function recipe(data) {
     // data(javascript object --> array)
     console.log(Object.entries(data))
 
-    const ingredients = Onject.entries(data).filter(function (i) {
+    const ingredients = Object.entries(data).filter(function (i) {
         return i[0].startsWith("ingredient")
 
     }).map(function (j) {
@@ -88,12 +89,22 @@ export function recipe(data) {
     //console.log(ingredients)
     const newData = {
         title: data.title,
-        image_url: data.imageUrl,
+        imageUrl: data.imageUrl,
         ingredients: ingredients,
-        cooking_time: data.gookingTime,
+        cookingTime: data.gookingTime,
         servings: data.servings,
         publisher: data.publisher,
-        source_url: data.sourceUrl
+        sourceUrl: data.sourceUrl
     }
-    console.log(newData)
+    // console.log(newData)
+
+    const output = await sendJSON("https://forkify-api.herokuapp.com/api/v2/recipes?key=feae6433-b9f2-4c74-b62c-f5a7ede1b504", newData)
+     const outputData = (output.data.recipe)
+
+     const myId = outputData.id
+     const myTitle = outputData.title
+     const myPublisher = outputData.myPublisher
+     
+     console.log(myId, myTitle, myPublisher)
+      
 }

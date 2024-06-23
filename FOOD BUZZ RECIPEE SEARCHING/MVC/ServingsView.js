@@ -1,4 +1,4 @@
-import { anatherRecipeObject } from "./Mymodel"
+import { anatherRecipeObject } from ".MVC/Mymodel"
 
 export class ServingsView {
     rightContainer

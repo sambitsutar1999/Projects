@@ -1,5 +1,5 @@
-import { anatherRecipeObject } from "./Mymodel"
-import { collectAndStoreBookmark } from "./Mymodel"
+import { anatherRecipeObject } from "./mymodel"
+import { collectAndStoreBookmark } from "./mymodel"
 
 export class BookmarkView {
     handleBookmarks() {

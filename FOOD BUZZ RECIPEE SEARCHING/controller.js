@@ -4,14 +4,14 @@ const searchBtn = document.getElementById("search")
 const searchInput = document.getElementById("searchinput")
 // const leftContainer = document.getElementById("left-container")
 // const rightContainer = document.getElementById("right-container")
-import { storeRecipeData } from "./MVC/Mymodel.js"
+import { storeRecipeData } from "../MVC/Mymodel.js"
 import { OneRecipeView } from "./MVC/OneRecipeView.js"
-import { getAllData } from "./MVC/Mymodel.js"
+import { getAllData } from "../MVC/Mymodel.js"
 import { API_URL } from "./helpers/helpers.js"
 import { getJSON } from "./config/config.js"
-import { AllData } from "./MVC/Mymodel.js"
+import { AllData } from "../MVC/Mymodel.js"
 import { AllRecipeView } from "./MVC/AllRecipeView.js"
-import { paginationData } from "./MVC/Mymodel.js"
+import { paginationData } from "../MVC/Mymodel.js"
 import { MyPaginationView } from "./MVC/MyPaginationView.js"
 import { ServingsView } from "./MVC/ServingsView.js"
 import { BookmarkView } from "./MVC/BookMarkView.js"
@@ -147,7 +147,7 @@ function callIt() {
 callIt()
 
 function servings() {
-    new sv = ServingsView()
+    const sv = new ServingsView()
     sv.render()
 }
 servings()
